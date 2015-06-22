@@ -1,0 +1,39 @@
+.all_users span {
+	color: silver;
+}
+
+.all_users {
+	border-top: 1px silver solid;
+}
+
+.all_users a {
+	text-decoration: none;
+}
+
+.all_users h5 {
+	margin-left: 10px
+}
+
+.all_tasks span {
+	color: silver;
+}
+
+.all_tasks h5 {
+	margin-left: 10px;
+}
+
+.all_tasks {
+	border-top: 1px silver solid;
+}
+
+#deadline {
+	color: #740501;
+}
+
+#urgency {
+	color: red;
+}
+
+#status {
+	color: red;
+}

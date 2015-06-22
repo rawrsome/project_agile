@@ -1,0 +1,38 @@
+<div ng-controller="usersController">
+	<h1>New User</h1>
+	<!-- first_name -->
+	<label for='first_name'>First name:</label>
+	<input id='first_name' type='text' ng-model='new_user.first_name' placeholder='First name'>
+	<!-- last_name -->
+	<label for='last_name'>Last name:</label>
+	<input id='last_name' type='text' ng-model='new_user.last_name' placeholder='Last name'>
+	<!-- nickname -->
+	<label for='nickname'>Nickname:</label>
+	<input id='nickname' type='text' ng-model='new_user.nickname' placeholder='Nickname'>
+	<!-- email -->
+	<label for='email'>Email:</label>
+	<input id='email' type='email' ng-model='new_user.email' placeholder='Email'>
+	<!-- department -->
+	<label for='department'>Department:</label>
+	<select id='department' ng-model='new_user.department'>
+		<option value="admin">Admin</option>
+		<option value="control">Control</option>
+		<option value="it">It</option>
+		<option value="marketing">Marketing</option>
+	</select>
+	<!-- password -->
+	<label for='password'>Password:</label>
+	<input id='password' name='password' type='password' required ng-model='new_user.password' placeholder='Password'>
+	<!-- confirm password -->
+	<!-- <label for='confirm_password'>Confirm password:</label>
+	<input id='confirm_password' 
+		name='confirm_password' 
+		type='password' 
+		placeholder='Confirm password' 
+		ui-validate=" '$value==password' "
+		ui-validate-watch=" 'password' ">
+		Password match? {{!!form.confirm_password.$error.validator}} -->
+	<br>
+	<!-- submit form -->
+	<input type='submit' ng-click='addUser()'>
+</div>

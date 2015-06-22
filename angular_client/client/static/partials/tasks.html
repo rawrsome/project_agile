@@ -1,0 +1,15 @@
+<div class="tasks_info" ng-controller="tasksController">
+	<h1>Tasks</h1>
+	<label for='filter_task'>Filter:</label>
+	<input type='text' ng-model='filter_title' placeholder='Filter..'>
+	<div class="all_tasks" ng-repeat="task in tasks | filter:filter_title">
+		<h3>{{task.title}}</h3>
+		<h5>Created at: <span>{{task.created_at | date: "MMMM d, y h:mm a"}}</span></h5>
+		<h5>Deadline: <span id="deadline">{{task.deadline}}</span></h5>
+		<h5>Urgency: <span id="urgency">{{task.urgency}}</span></h5>
+		<h5>{{task.point}} <span>points</span></h5>
+		<h5>Status: <span id="status">{{task.status}}</span></h5>
+		<h4>Description: <span>{{task.description}}</span></h4>
+		<p>Updated at: <span>{{task.updated_at | date: "MMMM d, y h:mm a"}}</span></p>
+	</div>
+</div>
