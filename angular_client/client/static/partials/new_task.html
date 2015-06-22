@@ -1,3 +1,32 @@
 <div ng-controller="tasksController">
 	<h1>New Task</h1>
+	<!-- title -->
+	<label for='title'>Title:</label>
+	<input id='title' type='text' ng-model='new_task.title' placeholder='Title'>
+	<!-- description -->
+	<label for='description'>Description:</label>
+	<textarea id='description' ng-model='new_task.description' placeholder='Type description..'></textarea>
+	<!-- deadline -->
+	<label for='deadline'>Deadline:</label>
+	<input id='deadline' ng-model='new_task.deadline' type='date' name='deadline'>
+	<!-- urgency -->
+	<label for='urgency'>Urgency:</label>
+	<select id='urgency' ng-model='new_task.urgency'>
+		<option value='priority'>Priority</option>
+		<option value='important'>Important</option>
+		<option value='not urgent'>Not urgent</option>
+	</select>
+	<!-- status -->
+	<label for='status'>Status:</label>
+	<select id='status' ng-model='new_task.status'>
+		<option value='incomplete 0%'>Incomplete 0%</option>
+		<option value='midway 50%'>Midway 50%</option>
+		<option value='complete 100%'>Complete 100%</option>
+	</select>
+	<!-- point -->
+	<label for='point'>Point:</label>
+	<input id='point' type='number' min='2' max='32' step='4' value='2' ng-model='new_task.point'>
+	<br>
+	<!-- submit form -->
+	<input type='submit' ng-click='addTask()'>
 </div>

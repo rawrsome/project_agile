@@ -108,7 +108,7 @@ var App = angular.module('myApp', ['ngRoute']);
 	// <=-=- end getTasks
 
 	// -=-=> addTask
-		factory.addTask = function(callback) {
+		factory.addTask = function(new_task, callback) {
 			console.log('-=-> addTask <-=- MainFactory', callback);
 			$http({
 				method: 'POST',
