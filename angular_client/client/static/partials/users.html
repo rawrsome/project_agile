@@ -4,7 +4,7 @@
 	<input type='text' ng-model='filter_name' placeholder='Filter..'>
 	<div class="all_users" ng-repeat="user in users | filter:filter_name">
 		<h3>
-			<a ng-click='userProfile(user.id)' href="#/profile/{{user.id}}">{{user.last_name}}, <span>{{user.first_name}}</span></a>
+			<a ng-click='showProfile(user.id)' href="#/profile/{{user.id}}">{{user.last_name}}, <span>{{user.first_name}}</span></a>
 		</h3>
 		<h5>Contact: <span>{{user.email}}</span></h5>
 		<h5>Nickname: <span>{{user.nickname}}</span></h5>

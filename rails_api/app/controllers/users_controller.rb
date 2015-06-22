@@ -15,10 +15,13 @@ class UsersController < ApplicationController
   		  email: params[:email],
   		  department: params[:department],
   		  password: params[:password])
-  	render json: @users
+  	render json: @user
   end
 
-
+  def show
+    @user = User.find(params[:id])
+    render json: @user
+  end
 
   # private
   #   def user_params

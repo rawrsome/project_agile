@@ -1,3 +1,10 @@
-<div>
+<div ng-controller='usersController'>
 	<h1>Profile</h1>
+	<div class="user_profile" ng-repeat='person in user_profile'>
+		<h3>{{person.last_name}} <span>{{person.first_name}}</span></h3>
+		<h5>Nickname: <span>{{person.nickname}}</span></h5>
+		<h5>Contact: <span>{{person.email}}</span></h5>
+		<h5>Department: <span>{{person.department}}</span></h5>
+		<p>Created at: <span>{{person.created_at}}</span></p>
+	</div>
 </div>

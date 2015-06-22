@@ -66,7 +66,8 @@ var App = angular.module('myApp', ['ngRoute']);
 							// usersController
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= //
 
-	App.controller('usersController', function($scope, MainFactory, $location) {
+	App.controller('usersController', function($scope, MainFactory, $location, $routeParams) {
+
 	// ====> display all users
 		console.log('---> show all users <--- usersController');
 		$scope.users = MainFactory.getUsers(function(res) {
@@ -86,6 +87,18 @@ var App = angular.module('myApp', ['ngRoute']);
 			$location.path('/users');
 		}
 	// <==== end addUser
+
+	// ====> showProfile
+		$scope.showProfile = function(res) {
+			console.log('---> showProfile <--- usersController');
+			user_id = res;
+			console.log(user_id);
+			MainFactory.showProfile(function(user_id) {
+
+			})
+		}
+
+	// <==== end showProfile
 	});
 
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ //
@@ -96,6 +109,7 @@ var App = angular.module('myApp', ['ngRoute']);
 		var factory = {};
 		var tasks = [];
 		var users = [];
+		var user_profile = [];
 
 	// -=-=> getTasks
 		factory.getTasks = function(callback) {
@@ -125,6 +139,18 @@ var App = angular.module('myApp', ['ngRoute']);
 
 
 
+
+
+	// ====> showProfile
+		factory.showProfile = function(callback) {
+			console.log('===> showProfile <=== MainFactory', callback);
+			$http.get('http://localhost:3000/users/'+user_id).success(function(res) {
+				user_profile = res;
+				console.log(user_profile);
+				callback(user_profile);
+			})
+		}
+	// <==== end showProfile
 
 
 	// ====> getUsers
