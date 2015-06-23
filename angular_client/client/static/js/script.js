@@ -93,12 +93,25 @@ var App = angular.module('myApp', ['ngRoute']);
 			console.log('---> showProfile <--- usersController');
 			user_id = res;
 			console.log(user_id);
-			MainFactory.showProfile(function(user_id) {
-
+			$scope.user_profile = MainFactory.showProfile(function(user_id) {
+				$scope.user_profile = user_id;
+				console.log('usersController getting -> ', $scope.user_profile);
 			})
 		}
-
 	// <==== end showProfile
+
+
+	// ====> updateUser
+		$scope.updateUser = function() {
+			user_id = res;
+			console(user_id);
+			MainFactory.updateUser(function(update_user, user_id) {
+				$scope.users = users;
+			});
+			$scope.update_user = {};
+			$location.path('/users');
+		}
+	// <==== end updateUser
 	});
 
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ //
@@ -146,7 +159,7 @@ var App = angular.module('myApp', ['ngRoute']);
 			console.log('===> showProfile <=== MainFactory', callback);
 			$http.get('http://localhost:3000/users/'+user_id).success(function(res) {
 				user_profile = res;
-				console.log(user_profile);
+				console.log('Factory getting -> ', user_profile);
 				callback(user_profile);
 			})
 		}
@@ -162,6 +175,25 @@ var App = angular.module('myApp', ['ngRoute']);
 			})
 		}
 	// <==== end getUsers
+
+
+	// ====> updateUser
+		factory.updateUser = function(update_user, callback) {
+			console.log('===> updateUser <=== UserFactory', callback);
+			$http({
+				method: 'POST',
+				url: 'http://localhost:3000/users',
+				params: update_user,
+				headers: {'Content-type': 'application/x-www-form-urlencoded'}
+			}).success(function(res) {
+				users = res;
+				callback(users);
+			})
+			console.log(update_user);
+		}
+
+	// <==== end updateUser
+
 
 	// ====> addUser
 		factory.addUser = function(new_user, callback) {

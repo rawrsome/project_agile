@@ -1,7 +1,18 @@
+.top_nav {
+	text-align: center;
+}
+
 .top_nav a {
 	font-weight: bold;
 	margin-right: 10px;
 	text-decoration: none;
+}
+
+.top_nav li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
 }
 
 .all_users span {
@@ -42,4 +53,8 @@
 
 #status {
 	color: red;
+}
+
+#header_name {
+	text-align: center;
 }

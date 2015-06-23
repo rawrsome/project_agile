@@ -5,6 +5,7 @@
   "name": "project_agile",
   "version": "0.0.1",
   "dependencies": {
+    "angular-ui-router": "^0.2.15",
     "body-parser": "^1.12.4",
     "express": "~4.2.0",
     "ngstorage": "^0.3.6",
